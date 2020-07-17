@@ -1,0 +1,16 @@
+version: "3.6"
+
+services:
+  database:
+    image: mysql:5.6
+    restart: always
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --innodb-flush-log-at-trx-commit=0
+    volumes:
+      - ./databases:/var/lib/mysql:cached
+    environment:
+      MYSQL_ROOT_PASSWORD: tesXMDb4593
+      MYSQL_DATABASE: wetterstation_db
+      MYSQL_USER: wtts_user
+      MYSQL_PASSWORD: wtts123asd
+    ports:
+      - 3306:3306

@@ -1,0 +1,71 @@
+{
+  "name": "weather_station",
+  "version": "1.0.0",
+  "author": "Sebastian Majchrzak <smajchrzak@msdat.de>",
+  "description": "Small Weather App to Save weather data",
+  "license": "ISC",
+  "main": "main.js",
+  "scripts": {
+    "build": "rm -rf dist/* && ./node_modules/.bin/tsc -p tsconfig.json",
+    "start": "NODE_ENV=dev NODE_WORKER=0 node dist/main.js",
+    "dev:debug": "ts-node-dev --inspect=4321 --respawn --transpileOnly src/main.ts",
+    "br": "yarn build && yarn start",
+    "dev": "nodemon",
+    "test": "jest --detectOpenHandles --forceExit",
+    "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f src/config/ormconfig.json"
+  },
+  "nodemonConfig": {
+    "exec": "yarn br",
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "ext": "ts",
+    "watch": [
+      "src"
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": ".",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.1",
+    "dotenv": "^8.2.0",
+    "entities": "^2.0.3",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "typeorm": "^0.2.25"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/config": "^0.0.36",
+    "@types/entities": "^1.1.1",
+    "@types/express": "^4.17.7",
+    "@types/jest": "^26.0.4",
+    "@types/node": "^14.0.23",
+    "@types/supertest": "^2.0.10",
+    "add": "^2.0.6",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2",
+    "ts-jest": "^26.1.2",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.51",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.6"
+  }
+}

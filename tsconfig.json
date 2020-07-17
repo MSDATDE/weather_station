@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "target": "esnext",
+        "module": "commonjs",
+        "outDir": "./dist",
+        "rootDir": "src",
+        "strict": true,
+        "strictNullChecks": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "baseUrl": "./",
+        "typeRoots": [
+            "types",
+            "node_modules/@types"
+        ],
+        "types": [
+            "node",
+            "jest"
+        ],
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/.env*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "src/**/*.spec.ts"
+    ],
+}
